@@ -1,1 +1,9 @@
 //FUNCION HECHA POR ARTURO
+//Genero la funcion para poder parsear la direccion de la memoria cache
+void ParsearDireccion(unsigned int addr, int *ETQ, int *palabra, int *linea, int *bloque){
+        addr &= 0xFFF;//Limito la direcciion a 12 bits
+        *palabra = addr & MASK_PALABRA;//Extraigo los 4 bits menos significativos
+        *linea = (addr >> 4) & MASK_LINEA;//Desplazo 4 bits a la izquierda y aplico la mas>
+        *ETQ = (addr >> 7 )& MASK_ETQ;//Desplazo 7 bits a la derecha y vuelvo a aplicar la>
+        *bloque = addr / TAM_LINEA;//Calculo el numero de bloque
+}

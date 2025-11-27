@@ -1,1 +1,11 @@
 //FUNCION HECHA POR ARTURO 
+//Genero la funcion para limpiar la cache
+void LimpiarCache(T_CACHE_LINE tbl[NUM_FILAS]){
+        //Genero el bucle para que recorra todas las filas de la cache
+        for (int i = 0;i< NUM_FILAS;i++){
+                tbl[i].ETQ = 0xFF;
+                for(int j = 0; j < TAM_LINEA; j++){//Genero el bucle para que recorra los >
+                        tbl[i].Data[j] = 0x23;
+                }
+        }
+}

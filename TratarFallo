@@ -1,1 +1,13 @@
-//Funcion realizada por Lara
+//Genero la funcion para poder tratar el fallo en la cache
+void TratarFallo(T_CACHE_LINE *tbl, char *MRAM, int ETQ, int linea, int bloque){
+  int base = bloque * TAM_LINEA; //Calculo el offset del boque en RAM
+
+  for (int i = 0; i < TAM_LINEA; i++){ //Genero el bucle para recorrer los 16 bytes>
+
+      if (base + 1 < TAM_RAM) //Genero la condicion para comrpobar que no he salido de la RAM
+          tbl[linea].Data[i] = MRAM[base + i];
+      else
+          tbl[linea].Data[i] = 0x00; //Si se sale del rando de la RAM, lo rellenamos con 0x00
+      }
+          tbl[linea].ETQ = (unsigned char)ETQ; 
+  }

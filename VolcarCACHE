@@ -1,10 +1,10 @@
 void VolcarCache(T_CACHE_LINE *tbl){
-    printf("El volvado de cache\n");
+    printf("El volcado de cache\n");
 
     for(int i = 0; i < NUM_FILAS; i++){ //Genero el bucle para recorrer todas las lineas de la cache
         printf("Linea %d | Etiqueta %02X |", i, tbl[i].ETQ);
 
-        for(int j = TAM_LINEA -1; j >= 0; j++){ //Genero el bucle para imprimir los datos de la linea de mayo a menor 
+        for(int j = TAM_LINEA -1; j >= 0; j++){ //Genero el bucle para imprimir los datos de la linea de mayor a menor 
             printf("%02X", tbl[i].Data[j]); //El %X para el hexadecimal 
         }
     }
